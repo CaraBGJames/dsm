@@ -2,7 +2,7 @@
 
 clear all
 close all
-%clc
+clc
 %Bsic MTT(56) plume model; CV analysis; steady; boussinesq
 %Mass (volume): d/dz(R^2w) = 2*alpha*w*R
 %Momentum: d/dz(R^2w^2) = g'*R^2
@@ -40,10 +40,12 @@ z=linspace(0,Z_int,1000);
 z=z';
 [z,y] = ode45(@MTT_odes,z,Yo);
 figure(10),plot(y,z/Zmax)
-legend('volume flux','momentum flux','buoyancy flux',4);
+legend('volume flux','momentum flux','buoyancy flux');
 ylabel('Height z / ( F^{1/4} N^{-3/4})'); xlabel('Plume parameter');
 axis([-1 10 0 5])
 
 hold on
-plot(0,z(1:20:end),'k .')
-plot(0,Zmom,'r square')
+%plot(0,z(1:20:end),'k .')
+%plot(0,Zmom,'r square')
+hold off
+
